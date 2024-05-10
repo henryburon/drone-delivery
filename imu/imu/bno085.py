@@ -7,9 +7,10 @@ from adafruit_bno08x import (
     BNO_REPORT_GYROSCOPE,
     BNO_REPORT_MAGNETOMETER,
     BNO_REPORT_ROTATION_VECTOR,
+    BNO_REPORT_GRAVITY,
+    BNO_REPORT_LINEAR_ACCELERATION
 )
 from adafruit_bno08x.i2c import BNO08X_I2C
-
 
 
 class BNO085(Node):
@@ -25,20 +26,32 @@ class BNO085(Node):
         self.bno.enable_feature(BNO_REPORT_GYROSCOPE)
         self.bno.enable_feature(BNO_REPORT_MAGNETOMETER)
         self.bno.enable_feature(BNO_REPORT_ROTATION_VECTOR)
+        self.bno.enable_feature(BNO_REPORT_GRAVITY)
+        self.bno.enable_feature(BNO_REPORT_LINEAR_ACCELERATION)
 
         # Begin the sensor's self-calibration routine
         self.bno.begin_calibration()
 
         # Timers
-        self.timer = self.create_timer(1/100, self.timer_callback)
+        self.timer = self.create_timer(1/20, self.timer_callback)
+
+        # Publishers
+        # could eventually make a custom message type, but this is simpler for now
+
 
     
     def timer_callback(self):
-        self.get_logger().info('Hello World!')
 
-        # Get Acceleration
-        accel_x, accel_y, accel_z = self.bno.acceleration
-        self.get_logger().info(str(accel_x))
+        # Read sensor values
+        accel_x, accel_y, accel_z = self.bno.acceleration # acceleration
+        gyro_x, gyro_y, gyro_z = self.bno.gyro # gyro
+        mag_x, mag_y, mag_z = self.bno.magnetic # magnetometer
+        quat_i, quat_j, quat_k, quat_real = self.bno.quaternion # rotation vector quaternion
+        grav_x, grav_y, grav_z = self.bno.gravity # gravity
+        lin_acc_x, lin_acc_y, lin_acc_z = self.bno.linear_acceleration # linear acceleration
+
+
+        self.get_logger().info("appears to be working")
 
 
 
