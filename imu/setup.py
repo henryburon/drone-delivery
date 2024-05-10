@@ -13,14 +13,14 @@ setup(
     ],
     install_requires=['setuptools'],
     zip_safe=True,
-    maintainer='msr',
-    maintainer_email='msr@todo.todo',
-    description='TODO: Package description',
-    license='TODO: License declaration',
+    maintainer='Henry Buron',
+    maintainer_email='henryburon2024@u.northwestern.edu',
+    description='This package publishes the IMU data from the BNO085 sensor.',
+    license='MIT',
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'bno085 = imu.bno085:main'
+            'bno085 = imu.bno085:bn085_entry'
         ],
     },
 )
