@@ -40,7 +40,7 @@ class BNO085(Node):
         # could eventually make a custom message type, but this is simpler for now
         self.imu_pub = self.create_publisher(Imu, 'imu/data', 10)
 
-    
+
     def timer_callback(self):
 
         # Read sensor values
@@ -62,7 +62,7 @@ class BNO085(Node):
         self.imu_pub.publish(imu_msg)
 
 
-
+	self.get_logger().info("testing it")
 
 
 def bn085_entry(args=None):
