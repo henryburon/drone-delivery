@@ -3,14 +3,17 @@
 <package format="3">
   <name>payload</name>
   <version>0.0.0</version>
-  <description>TODO: Package description</description>
-  <maintainer email="msr@todo.todo">msr</maintainer>
-  <license>TODO: License declaration</license>
+  <description>Stable payload delivery</description>
+  <maintainer email="henryburon2024@u.northwestern.edu">Henry Buron</maintainer>
+  <license>MIT</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
+
+  <depend>rclcpp</depend>
+  
 
   <export>
     <build_type>ament_cmake</build_type>

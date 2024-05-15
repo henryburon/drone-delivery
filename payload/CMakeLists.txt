@@ -7,14 +7,19 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
-# uncomment the following section in order to fill in
-# further dependencies manually.
-# find_package(<dependency> REQUIRED)
+find_package(rclcpp REQUIRED)
 
+# executables
 add_executable(payload_control src/payload_control.cpp)
+
+# add dependencies
+ament_target_dependencies(payload_control 
+  rclcpp)
+
 target_include_directories(payload_control PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>)
+
 target_compile_features(payload_control PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
 
 install(TARGETS payload_control
