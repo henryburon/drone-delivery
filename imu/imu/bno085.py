@@ -61,8 +61,9 @@ class BNO085(Node):
 
         self.imu_pub.publish(imu_msg)
 
+        self.get_logger().info("test")
 
-	self.get_logger().info("testing it")
+
 
 
 def bn085_entry(args=None):
