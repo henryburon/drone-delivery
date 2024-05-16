@@ -87,6 +87,9 @@ private:
       imu_data.grav_x, imu_data.grav_y, imu_data.grav_z,
       imu_data.lin_acc_x, imu_data.lin_acc_y, imu_data.lin_acc_z);
 
+    log hello  
+    RCLCPP_INFO(this->get_logger(), "Hello, world!");
+
   }
 
   void imu_callback(const sensor_msgs::msg::Imu::SharedPtr msg)
