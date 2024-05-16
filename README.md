@@ -16,6 +16,11 @@ source /opt/ros/humble/setup.bash
 ssh msr@192.168.18.191
 ```
 
+3. Build payload package
+```
+colcon build --packages-select payload
+```
+
 
 
 
