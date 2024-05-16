@@ -35,7 +35,7 @@ class BNO085(Node):
         self.bno.begin_calibration()
 
         # Timers
-        self.timer = self.create_timer(1/20, self.timer_callback)
+        self.timer = self.create_timer(1/5, self.timer_callback)
 
         # Publishers
         self.imu_pub = self.create_publisher(Imu, 'imu/data', 10)
