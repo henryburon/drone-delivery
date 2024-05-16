@@ -8,13 +8,18 @@ endif()
 # find dependencies
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
+find_package(sensor_msgs REQUIRED)
+find_package(geometry_msgs REQUIRED)
+
 
 # executables
 add_executable(payload_control src/payload_control.cpp)
 
 # add dependencies
 ament_target_dependencies(payload_control 
-  rclcpp)
+  rclcpp
+  sensor_msgs
+  geometry_msgs)
 
 target_include_directories(payload_control PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
