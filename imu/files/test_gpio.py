@@ -16,8 +16,8 @@ motor_channel = pca.channels[0]
 
 print("3")
 
-motor_channel.duty_cycle = 0xD6D8
-sleep(2)
+motor_channel.duty_cycle = 0xAFC8 # in decimal, this is 39000
+sleep(3)
 motor_channel.duty_cycle = 0
 sleep(1)
 
