@@ -20,7 +20,7 @@ def percent_to_duty_cycle(percent):
     
     return duty_cycle
 
-percent = 50
+percent = 75
 duty_cycle_value = percent_to_duty_cycle(percent)
 
 print(f"Duty cycle value for {percent}% is {duty_cycle_value}")
