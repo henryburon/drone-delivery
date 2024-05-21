@@ -15,7 +15,11 @@ pca.frequency = 50
 led_channel = pca.channels[0]
 
 # Increase brightness:
-for i in range(0xffff):
-    time.sleep(0.01)
-    led_channel.duty_cycle = i
-    print(i)
+# for i in range(0xffff):
+#     time.sleep(0.01)
+#     led_channel.duty_cycle = i
+#     print(i)
+
+
+while True:
+    led_channel.duty_cycle = 0xDAC
