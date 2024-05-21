@@ -1,5 +1,6 @@
 import board
 import busio
+import time
 from adafruit_bno08x import (
     BNO_REPORT_ACCELEROMETER,
     BNO_REPORT_GYROSCOPE,
@@ -16,9 +17,12 @@ bno.enable_feature(BNO_REPORT_ACCELEROMETER)
 bno.enable_feature(BNO_REPORT_GYROSCOPE)
 
 
+
 while True:
       accel_x, accel_y, accel_z = bno.acceleration
       print(accel_x, accel_y, accel_z)
 
       gyro_x, gyro_y, gyro_z = bno.gyro
       print(gyro_x, gyro_y, gyro_z)
+
+      time.sleep(0.5)
