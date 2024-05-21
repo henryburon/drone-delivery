@@ -18,31 +18,8 @@ led_channel = pca.channels[2]
 
 # Increase brightness:
 for i in range(0xffff):
-    time.sleep(0.01)
+    time.sleep(0.005)
     led_channel.duty_cycle = i
     print(i)
 
 
-# while True:
-#     led_channel.duty_cycle = 0xE10
-
-# make a while loop that lasts 7 seconds
-
-
-
-# led_channel.duty_cycle = 0
-# time.sleep(3)
-
-# led_channel.duty_cycle = 0xDEF
-# time.sleep(7)
-
-# led_channel.duty_cycle = 0
-# time.sleep(3)
-
-
-
-# start = time.time()
-# while time.time() - start < 10:
-#     led_channel.duty_cycle = 0xE10
-
-# led_channel.duty_cycle = 0
