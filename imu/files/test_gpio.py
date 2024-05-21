@@ -15,10 +15,12 @@ pca.frequency = 50
 
 # make the motor go forward
 led_channel = pca.channels[2]
-led_channel.duty_cycle = 0
 
 while True:
-      led_channel.duty_cycle = 0xE74
+      led_channel.duty_cycle = 0xDF9
+      time.sleep(1)
+      led_channel.duty_cycle = 0x000
+      time.sleep(1)
 
 
 # Increase brightness:
