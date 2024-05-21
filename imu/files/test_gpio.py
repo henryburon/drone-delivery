@@ -1,7 +1,6 @@
 import board
 import busio
 import adafruit_pca9685
-from time import sleep
 
 print("1")
 
@@ -14,11 +13,5 @@ pca.frequency = 50
 motor_channel = pca.channels[0]
 
 
-print("3")
-
-motor_channel.duty_cycle = 0xAFC8 # in decimal, this is 39000
-sleep(3)
-motor_channel.duty_cycle = 0
-sleep(1)
-
-print("ending")
+while True:
+   motor_channel.duty_cycle = 0xAFC8 # in decimal, this is 39000
