@@ -21,7 +21,7 @@ class BNO085(Node):
 
         # Set up device with Raspberry Pi I2C
         i2c = busio.I2C(board.SCL, board.SDA)
-        self.bno = BNO08X_I2C(i2c)
+        self.bno = BNO08X_I2C(i2c, address=0x4A)
 
         # Enable base features
         self.bno.enable_feature(BNO_REPORT_ACCELEROMETER)
