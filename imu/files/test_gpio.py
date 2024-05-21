@@ -12,7 +12,8 @@ print("2")
 pca.frequency = 50
 motor_channel = pca.channels[0]
 
+motor_channel.duty_cycle = 0
 
-# Increase brightness:
-for i in range(0xffff):
-    motor_channel.duty_cycle = i
+
+# while True:
+#    motor_channel.duty_cycle = 0xAFC8 # in decimal, this is 39000
