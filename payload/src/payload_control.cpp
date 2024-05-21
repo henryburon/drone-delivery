@@ -72,20 +72,24 @@ private:
   void timer_callback()
   {
 
-    // log the IMU data struct
-    RCLCPP_INFO(this->get_logger(), "IMU Data: \n"
-      "acc_x: %f, acc_y: %f, acc_z: %f\n"
-      "gyro_x: %f, gyro_y: %f, gyro_z: %f\n"
-      "mag_x: %f, mag_y: %f, mag_z: %f\n"
-      "quat_x: %f, quat_y: %f, quat_z: %f, quat_w: %f\n"
-      "grav_x: %f, grav_y: %f, grav_z: %f\n"
-      "lin_acc_x: %f, lin_acc_y: %f, lin_acc_z: %f\n",
-      imu_data.acc_x, imu_data.acc_y, imu_data.acc_z,
-      imu_data.gyro_x, imu_data.gyro_y, imu_data.gyro_z,
-      imu_data.mag_x, imu_data.mag_y, imu_data.mag_z,
-      imu_data.quat_x, imu_data.quat_y, imu_data.quat_z, imu_data.quat_w,
-      imu_data.grav_x, imu_data.grav_y, imu_data.grav_z,
-      imu_data.lin_acc_x, imu_data.lin_acc_y, imu_data.lin_acc_z);
+    // RCLCPP_INFO(this->get_logger(), "IMU Data: \n"
+    //   "acc_x: %f, acc_y: %f, acc_z: %f\n"
+    //   "gyro_x: %f, gyro_y: %f, gyro_z: %f\n"
+    //   "mag_x: %f, mag_y: %f, mag_z: %f\n"
+    //   "quat_x: %f, quat_y: %f, quat_z: %f, quat_w: %f\n"
+    //   "grav_x: %f, grav_y: %f, grav_z: %f\n"
+    //   "lin_acc_x: %f, lin_acc_y: %f, lin_acc_z: %f\n",
+    //   imu_data.acc_x, imu_data.acc_y, imu_data.acc_z,
+    //   imu_data.gyro_x, imu_data.gyro_y, imu_data.gyro_z,
+    //   imu_data.mag_x, imu_data.mag_y, imu_data.mag_z,
+    //   imu_data.quat_x, imu_data.quat_y, imu_data.quat_z, imu_data.quat_w,
+    //   imu_data.grav_x, imu_data.grav_y, imu_data.grav_z,
+    //   imu_data.lin_acc_x, imu_data.lin_acc_y, imu_data.lin_acc_z);
+
+    
+
+    
+
 
   }
 
