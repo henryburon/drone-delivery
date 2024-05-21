@@ -19,9 +19,9 @@ class BNO085(Node):
     def __init__(self):
         super().__init__('bno085')
 
-        # Set up device with Jetson Nano
-        i2c = busio.I2C(board.SCL_1, board.SDA_1)
-        self.bno = BNO08X_I2C(i2c, address=0x4A)
+        # Set up device with Raspberry Pi I2C
+        i2c = busio.I2C(board.SCL, board.SDA)
+        self.bno = BNO08X_I2C(i2c)
 
         # Enable base features
         self.bno.enable_feature(BNO_REPORT_ACCELEROMETER)
