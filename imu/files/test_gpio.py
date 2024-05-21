@@ -12,7 +12,7 @@ print("2")
 pca.frequency = 50
 motor_channel = pca.channels[0]
 
-motor_channel.duty_cycle = 0
+motor_channel.duty_cycle = 0x7fff
 
 
 # while True:
