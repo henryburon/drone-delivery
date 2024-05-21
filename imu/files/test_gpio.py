@@ -18,7 +18,7 @@ led_channel = pca.channels[2]
 
 while True:
       led_channel.duty_cycle = 0xDF9
-      time.sleep(1)
+      time.sleep(5)
       led_channel.duty_cycle = 0x000
       time.sleep(1)
 
