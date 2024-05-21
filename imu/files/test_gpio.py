@@ -21,5 +21,15 @@ led_channel = pca.channels[0]
 #     print(i)
 
 
-while True:
-    led_channel.duty_cycle = 0xDEF
+# while True:
+#     led_channel.duty_cycle = 0xDEF
+
+
+led_channel.duty_cycle = 0
+time.sleep(3)
+
+led_channel.duty_cycle = 0xDEF
+time.sleep(7)
+
+led_channel.duty_cycle = 0
+time.sleep(3)
