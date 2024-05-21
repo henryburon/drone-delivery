@@ -11,10 +11,14 @@ from adafruit_bno08x import (
 )
 from adafruit_bno08x.i2c import BNO08X_I2C
 
-i2c = busio.I2C(board.SCL, board.SDA, frequency=400000)
+i2c = busio.I2C(board.SCL, board.SDA)
 bno = BNO08X_I2C(i2c)
 bno.enable_feature(BNO_REPORT_ACCELEROMETER)
 bno.enable_feature(BNO_REPORT_GYROSCOPE)
+bno.enable_feature(BNO_REPORT_MAGNETOMETER)
+bno.enable_feature(BNO_REPORT_ROTATION_VECTOR)
+bno.enable_feature(BNO_REPORT_GRAVITY)
+bno.enable_feature(BNO_REPORT_LINEAR_ACCELERATION)
 
 
 
@@ -25,4 +29,16 @@ while True:
       gyro_x, gyro_y, gyro_z = bno.gyro
       print(gyro_x, gyro_y, gyro_z)
 
-      time.sleep(0.5)
+      mag_x, mag_y, mag_z = bno.magnetic
+      print(mag_x, mag_y, mag_z)
+
+      quat_i, quat_j, quat_k, quat_real = bno.quaternion
+      print(quat_i, quat_j, quat_k, quat_real)
+
+      grav_x, grav_y, grav_z = bno.gravity
+      print(grav_x, grav_y, grav_z)
+
+      lin_acc_x, lin_acc_y, lin_acc_z = bno.linear_acceleration
+      print(lin_acc_x, lin_acc_y, lin_acc_z)
+
+      
