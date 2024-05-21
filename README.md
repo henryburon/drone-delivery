@@ -20,7 +20,7 @@ Note: issue with `ros2 node list` not returning anything, even if nodes are acti
 2. SSH into Jetson Orin Nano
 
 ```
-ssh msr@192.168.18.191
+ssh -X henry@192.168.18.108
 ```
 
 3. Build only payload package
