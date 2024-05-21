@@ -5,6 +5,8 @@ import time
 i2c = busio.I2C(board.SCL, board.SDA)
 pca = adafruit_pca9685.PCA9685(i2c)
 
+#3567
+
 
 # this code is to control a brushless motor with ESC
 
@@ -41,6 +43,6 @@ led_channel = pca.channels[0]
 
 start = time.time()
 while time.time() - start < 10:
-    led_channel.duty_cycle = 0xDEF
+    led_channel.duty_cycle = 0xE10
 
 led_channel.duty_cycle = 0
