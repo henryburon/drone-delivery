@@ -10,10 +10,10 @@ Payload stabilization.
 source /opt/ros/humble/setup.bash
 ```
 
-2. SSH into Jetson Orin Nano
+2. SSH into Raspberry Pi
 
 ```
-ssh msr@192.168.18.191
+ssh -X henry@192.168.18.108
 ```
 
 3. Build payload package
