@@ -24,7 +24,7 @@ led_channel = pca.channels[0]
 
 
 while True:
-    led_channel.duty_cycle = 0xDEF
+    led_channel.duty_cycle = 0xE10
 
 # make a while loop that lasts 7 seconds
 
