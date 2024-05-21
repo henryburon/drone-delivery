@@ -22,4 +22,4 @@ led_channel = pca.channels[0]
 
 
 while True:
-    led_channel.duty_cycle = 0xDAC
+    led_channel.duty_cycle = 0xDEF
