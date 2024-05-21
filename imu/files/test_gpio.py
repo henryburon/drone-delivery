@@ -16,14 +16,14 @@ pca.frequency = 50
 # make the motor go forward
 led_channel = pca.channels[2]
 
-# initialize by setting to 3000
-led_channel.duty_cycle = 0xBB8
-time.sleep(0.001)
-
 
 
 try:
    print("starting!")
+
+   # initialize by setting to 3000
+   led_channel.duty_cycle = 0xBB8
+   time.sleep(0.001)
 
    # set to 4000
    led_channel.duty_cycle = 0xFA0
