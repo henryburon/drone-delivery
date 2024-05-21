@@ -1,7 +1,6 @@
 import board
 import busio
 import adafruit_pca9685
-import time
 i2c = busio.I2C(board.SCL, board.SDA)
 pca = adafruit_pca9685.PCA9685(i2c)
 
@@ -12,19 +11,9 @@ pca = adafruit_pca9685.PCA9685(i2c)
 pca.frequency = 50
 
 # make the motor go forward
-pca.channels[0].duty_cycle = 0x7FFF
+led_channel = pca.channels[0]
 
-# wait for 2 seconds
-time.sleep(2)
-
-# make the motor go backward
-pca.channels[0].duty_cycle = 0x1FFF
-
-# wait for 2 seconds
-time.sleep(2)
-
-# stop the motor
-pca.channels[0].duty_cycle = 0x0000
-
-# wait for 2 seconds
-time.sleep(2)
+# Increase brightness:
+for i in range(0xffff):
+    led_channel.duty_cycle = i
+    print(i)
