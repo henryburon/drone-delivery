@@ -24,9 +24,16 @@ led_channel = pca.channels[2]
 
 
 # Increase brightness:
-for i in range(0, 0xffff, 500):
-    time.sleep(1.5)
-    led_channel.duty_cycle = i
-    print(i)
+# for i in range(0, 0xffff, 500):
+#     time.sleep(1.5)
+#     led_channel.duty_cycle = i
+#     print(i)
+
+
+# set to 3000 for a second, then 4000
+led_channel.duty_cycle = 0xBB8
+time.sleep(1)
+led_channel.duty_cycle = 0xFA0
+time.sleep(5)
 
 
