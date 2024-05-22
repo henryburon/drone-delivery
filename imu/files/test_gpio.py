@@ -1,3 +1,13 @@
+##### NOTES #####
+
+# To Arm the ESC, I can do a range of 2800 to 3000, time.sleep 0.01, increment 2
+
+
+
+
+
+
+
 import board
 import busio
 import adafruit_pca9685
@@ -5,10 +15,11 @@ import time
 i2c = busio.I2C(board.SCL, board.SDA)
 pca = adafruit_pca9685.PCA9685(i2c)
 
-#3567
 
 
-# this code is to control a brushless motor with ESC
+
+
+
 
 # set the frequency of the PWM signal to 50Hz
 pca.frequency = 50
@@ -19,7 +30,7 @@ led_channel = pca.channels[2]
 # ARM the ESC first. This is entirely the ESC, not the PCA9685
 # to arm the ESC, the min range I can get it to work at is 2800 - 3000, skipping 2
 # could potentially get a smaller range when skipping fewer numbers
-for i in range(2500, 3000, 2): # safe: 2500 - 3000
+for i in range(2800, 3000, 2): # safe: 2500 - 3000
     time.sleep(0.01)
     led_channel.duty_cycle = i
     print(i)
@@ -27,20 +38,30 @@ for i in range(2500, 3000, 2): # safe: 2500 - 3000
 print("armed!")
 
 
-try:
-   print("starting!")
 
-   # set to 4000
-   led_channel.duty_cycle = 0xFA0
-   time.sleep(3)
-   led_channel.duty_cycle = 0x1194
-   time.sleep(3)
-   led_channel.duty_cycle = 0xFA0
-   time.sleep(3)
+while True:
+   # ask the user to input an integer
+   user_input = input("Enter a duty cycle (int): ")
+   led_channel.duty_cycle = int(user_input)
+   print("Duty cycle set to: " + str(user_input))
+   time.sleep(2)
 
-   print("ending!")
-   time.sleep(5)
 
-except KeyboardInterrupt:
-      led_channel.duty_cycle = 0x000
-      print("stopped!")
+
+# try:
+#    print("starting!")
+
+#    # set to 4000
+#    led_channel.duty_cycle = 0xFA0
+#    time.sleep(3)
+#    led_channel.duty_cycle = 0x1194
+#    time.sleep(3)
+#    led_channel.duty_cycle = 0xFA0
+#    time.sleep(3)
+
+#    print("ending!")
+#    time.sleep(5)
+
+# except KeyboardInterrupt:
+#       led_channel.duty_cycle = 0x000
+#       print("stopped!")
