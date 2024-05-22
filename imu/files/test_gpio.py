@@ -17,25 +17,26 @@ pca.frequency = 50
 led_channel = pca.channels[2]
 
 # Increase brightness:
-for i in range(0, 0xffff, 4):
-    time.sleep(0.001)
-    led_channel.duty_cycle = i
+# for i in range(0, 0xffff, 4):
+#     time.sleep(0.01)
+#     led_channel.duty_cycle = i
+#     print(i)
 
 
 
-# try:
-#    print("starting!")
+try:
+   print("starting!")
 
-#    # initialize by setting to 3000
-#    led_channel.duty_cycle = 0xBB8
-#    time.sleep(0.001)
+   # initialize by setting to 3000
+   led_channel.duty_cycle = 0xBB8
+   time.sleep(0.001)
 
-#    # set to 4000
-#    led_channel.duty_cycle = 0xFA0
-#    time.sleep(5)
+   # set to 4000
+   led_channel.duty_cycle = 0xFA0
+   time.sleep(5)
 
-#    print("ending!")
+   print("ending!")
 
-# except KeyboardInterrupt:
-#       led_channel.duty_cycle = 0x000
-#       print("stopped!")
+except KeyboardInterrupt:
+      led_channel.duty_cycle = 0x000
+      print("stopped!")
