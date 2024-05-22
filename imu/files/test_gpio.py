@@ -32,7 +32,7 @@ try:
    time.sleep(0.001)
 
    # set to 4000
-   led_channel.duty_cycle = 0xFA0
+   led_channel.duty_cycle = 0x1194
    time.sleep(5)
 
    print("ending!")
