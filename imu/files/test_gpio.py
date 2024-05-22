@@ -22,10 +22,10 @@ led_channel = pca.channels[2]
 #     led_channel.duty_cycle = i
 #     print(i)
 
-# for i in range(0x9C4, 0xBB8, 2):
-#     time.sleep(0.01)
-#     led_channel.duty_cycle = i
-#     print(i)
+for i in range(0x9C4, 0xBB8, 2):
+    time.sleep(0.01)
+    led_channel.duty_cycle = i
+    print(i)
 
 
 
