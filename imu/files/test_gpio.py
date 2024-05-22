@@ -16,19 +16,14 @@ pca.frequency = 50
 # make the motor go forward
 led_channel = pca.channels[2]
 
-# Increase brightness:
-# for i in range(0, 0xffff, 4):
-#     time.sleep(0.01)
-#     led_channel.duty_cycle = i
-#     print(i)
-
+# ARM the ESC first. This is entirely the ESC, not the PCA9685
 for i in range(0x9C4, 0xBB8, 2):
     time.sleep(0.01)
     led_channel.duty_cycle = i
     print(i)
 
-print("initializing!")
-time.sleep(3)
+print("armed!")
+
 
 try:
    print("starting!")
@@ -39,7 +34,11 @@ try:
 
    # set to 4000
    led_channel.duty_cycle = 0xFA0
-   time.sleep(15)
+   time.sleep(3)
+   led_channel.duty_cycle = 0x1194
+   time.sleep(3)
+   led_channel.duty_cycle = 0xFA0
+   time.sleep(3)
 
    print("ending!")
 
