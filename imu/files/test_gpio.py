@@ -17,7 +17,9 @@ pca.frequency = 50
 led_channel = pca.channels[2]
 
 # ARM the ESC first. This is entirely the ESC, not the PCA9685
-for i in range(0xAF0, 0xBB8, 2): # safe: 2500 - 3000
+# to arm the ESC, the min range I can get it to work at is 2800 - 3000, skipping 2
+# could potentially get a smaller range when skipping fewer numbers
+for i in range(2500, 3000, 2): # safe: 2500 - 3000
     time.sleep(0.01)
     led_channel.duty_cycle = i
     print(i)
