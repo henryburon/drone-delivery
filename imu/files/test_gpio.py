@@ -17,7 +17,7 @@ pca.frequency = 50
 led_channel = pca.channels[2]
 
 # ARM the ESC first. This is entirely the ESC, not the PCA9685
-for i in range(0x9C4, 0xBB8, 2):
+for i in range(0x9C4, 0xBB8, 4):
     time.sleep(0.01)
     led_channel.duty_cycle = i
     print(i)
@@ -28,10 +28,6 @@ print("armed!")
 try:
    print("starting!")
 
-   # # initialize by setting to 3000
-   # led_channel.duty_cycle = 0xBB8
-   # time.sleep(0.5)
-
    # set to 4000
    led_channel.duty_cycle = 0xFA0
    time.sleep(3)
@@ -41,6 +37,7 @@ try:
    time.sleep(3)
 
    print("ending!")
+   time.sleep(5)
 
 except KeyboardInterrupt:
       led_channel.duty_cycle = 0x000
