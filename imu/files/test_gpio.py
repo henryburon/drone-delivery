@@ -17,7 +17,7 @@ pca.frequency = 50
 led_channel = pca.channels[2]
 
 # ARM the ESC first. This is entirely the ESC, not the PCA9685
-for i in range(0x9C4, 0xBB8, 2):
+for i in range(0xA8C, 0xBB8, 2):
     time.sleep(0.01)
     led_channel.duty_cycle = i
     print(i)
