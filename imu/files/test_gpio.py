@@ -29,7 +29,7 @@ try:
 
    # initialize by setting to 3000
    led_channel.duty_cycle = 0xBB8
-   time.sleep(0.1)
+   time.sleep(0.5)
 
    # set to 4000
    led_channel.duty_cycle = 0xE40
