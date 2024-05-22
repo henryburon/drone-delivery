@@ -22,18 +22,24 @@ led_channel = pca.channels[2]
 #     led_channel.duty_cycle = i
 #     print(i)
 
+for i in range(0x9C4, 0xBB8, 4):
+    time.sleep(0.01)
+    led_channel.duty_cycle = i
+    print(i)
+
+
 
 
 try:
    print("starting!")
 
-   # initialize by setting to 3000
-   led_channel.duty_cycle = 0xBB8
-   time.sleep(0.5)
+   # # initialize by setting to 3000
+   # led_channel.duty_cycle = 0xBB8
+   # time.sleep(0.5)
 
    # set to 4000
    led_channel.duty_cycle = 0xE40
-   time.sleep(5)
+   time.sleep(15)
 
    print("ending!")
 
