@@ -46,10 +46,12 @@ class MotorControl(Node):
             if self.flag == False:
                self.flag = True
                self.led_channel_0.duty_cycle = 3680
+               self.led_channel_2.duty_cycle = 3680
             
             else:
                 self.flag = False
                 self.led_channel_0.duty_cycle = 2900
+                self.led_channel_2.duty_cycle = 2900
 
 
 
