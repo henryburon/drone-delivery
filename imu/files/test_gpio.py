@@ -10,16 +10,16 @@ pca = adafruit_pca9685.PCA9685(i2c)
 pca.frequency = 50
 
 # make the motor go forward
-led_channel_0 = pca.channels[0]
-# led_channel_2 = pca.channels[2]
+# led_channel_0 = pca.channels[0]
+led_channel_2 = pca.channels[2]
 
 # ARM the ESC first. This is entirely the ESC, not the PCA9685
 # to arm the ESC, the min range I can get it to work at is 2800 - 3000, skipping 2
 # could potentially get a smaller range when skipping fewer numbers
 for i in range(2800, 3000, 2): # safe: 2500 - 3000
    time.sleep(0.01)
-   led_channel_0.duty_cycle = i
-   # led_channel_2.duty_cycle = i
+   # led_channel_0.duty_cycle = i
+   led_channel_2.duty_cycle = i
    print(i)
 
 print("armed!")
@@ -29,8 +29,8 @@ print("armed!")
 while True:
    # ask the user to input an integer
    user_input = input("Enter a duty cycle (int): ")
-   led_channel_0.duty_cycle = int(user_input)
-   # led_channel_2.duty_cycle = int(user_input)
+   # led_channel_0.duty_cycle = int(user_input)
+   led_channel_2.duty_cycle = int(user_input)
    print("Duty cycle set to: " + str(user_input))
    time.sleep(2)
 
