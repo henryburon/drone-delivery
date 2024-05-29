@@ -147,7 +147,7 @@ class MotorControl(Node):
             return 3200
 
         percent_range = [0, 100]
-        duty_cycle_range = [3600, 4300]
+        duty_cycle_range = [3600, 4500]
 
         scaled_value = (percentage - percent_range[0]) * (duty_cycle_range[1] - duty_cycle_range[0]) / (percent_range[1] - percent_range[0]) + duty_cycle_range[0]
 
