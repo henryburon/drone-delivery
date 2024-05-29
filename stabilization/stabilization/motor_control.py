@@ -31,6 +31,7 @@ class MotorControl(Node):
         self.esc_armed = False
 
         # imu data structure
+        self.imu_data = {}
         self.imu_data['linear_acceleration'] = [0, 0, 0]
         self.imu_data['gyro'] = [0, 0, 0]
 
