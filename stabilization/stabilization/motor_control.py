@@ -94,7 +94,10 @@ class MotorControl(Node):
                 output_percent = self.Kp * abs(error)
 
                 # convert the desired motor percentage to a duty cycle
-                duty_cycle = self.percentage_to_duty_cycle(output_percent, 2)
+                duty_cycle = int(self.percentage_to_duty_cycle(output_percent, 2))
+
+                # log the duty cycle
+                self.get_logger().info("Duty cycle: " + str(duty_cycle))
 
                 # set the CCW-pushing motor's duty cycle
                 self.led_channel_2.duty_cycle = duty_cycle
@@ -108,7 +111,10 @@ class MotorControl(Node):
                 output_percent = self.Kp * abs(error)
 
                 # convert the desired motor percentage to a duty cycle
-                duty_cycle = self.percentage_to_duty_cycle(output_percent, 0)
+                duty_cycle = int(self.percentage_to_duty_cycle(output_percent, 0))
+
+                # log the duty cycle
+                self.get_logger().info("Duty cycle: " + str(duty_cycle))
 
                 # set the CW-pushing motor's duty cycle
                 self.led_channel_0.duty_cycle = duty_cycle
