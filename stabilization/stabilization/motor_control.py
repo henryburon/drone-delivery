@@ -91,7 +91,7 @@ class MotorControl(Node):
                     f.write(str(output_percent) + '\n')
 
                 with open('cw_output_percent.csv', 'a') as f:
-                    f.write(str(0.0) + '\n')
+                    f.write(str(0.0001) + '\n')
 
                 # convert the desired motor percentage to a duty cycle
                 duty_cycle = int(self.percentage_to_duty_cycle(output_percent, 2))
@@ -114,7 +114,7 @@ class MotorControl(Node):
                     f.write(str(output_percent) + '\n')
 
                 with open('ccw_output_percent.csv', 'a') as f:
-                    f.write(str(0.0) + '\n')
+                    f.write(str(0.0001) + '\n')
 
                 # convert the desired motor percentage to a duty cycle
                 duty_cycle = int(self.percentage_to_duty_cycle(output_percent, 0))
@@ -135,6 +135,12 @@ class MotorControl(Node):
             # ensure both motors are off
             self.led_channel_0.duty_cycle = 3200
             self.led_channel_2.duty_cycle = 3200
+
+            with open('cw_output_percent.csv', 'a') as f:
+                    f.write(str(0.0001) + '\n')
+
+            with open('ccw_output_percent.csv', 'a') as f:
+                    f.write(str(0.0001) + '\n')
 
 
                  
