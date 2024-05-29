@@ -37,7 +37,7 @@ class MotorControl(Node):
 
         # other variables
         self.flag = True # set back to false after testing
-        self.Kp = 3.0
+        self.Kp = 5.0
         self.Ki = 0.0
         self.Kd = 0.0
 
@@ -120,7 +120,7 @@ class MotorControl(Node):
                 self.led_channel_0.duty_cycle = duty_cycle
 
         # safety feature: if the error is too large, just shut off the motors
-        elif abs(error) > 4.0:
+        elif abs(error) > 7.0:
             self.led_channel_0.duty_cycle = 3200
             self.led_channel_2.duty_cycle = 3200
 
