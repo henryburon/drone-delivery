@@ -37,7 +37,7 @@ class MotorControl(Node):
 
         # other variables
         self.flag = True # set back to false after testing
-        self.Kp = 5.0
+        self.Kp = 10.0
         self.Ki = 0.0
         self.Kd = 0.0
 
