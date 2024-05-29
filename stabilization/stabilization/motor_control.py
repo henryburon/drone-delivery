@@ -69,7 +69,9 @@ class MotorControl(Node):
 
         # save the error to csv file
         with open('error.csv', 'a') as f:
-            f.write(str(error) + '\n')
+            f.write(str(abs(error)) + '\n')
+
+        
 
         # log the error
         self.get_logger().info("Error: " + str(error))
@@ -84,6 +86,9 @@ class MotorControl(Node):
 
                 # determine the duty cycle for the CCW-pushing motor
                 output_percent = self.Kp * abs(error)
+
+                with open('ccw_output_percent.csv', 'a') as f:
+                    f.write(str(output_percent) + '\n')
 
                 # convert the desired motor percentage to a duty cycle
                 duty_cycle = int(self.percentage_to_duty_cycle(output_percent, 2))
@@ -101,6 +106,9 @@ class MotorControl(Node):
 
                 # determine the duty cycle for the CW-pushing motor
                 output_percent = self.Kp * abs(error)
+
+                with open('cw_output_percent.csv', 'a') as f:
+                    f.write(str(output_percent) + '\n')
 
                 # convert the desired motor percentage to a duty cycle
                 duty_cycle = int(self.percentage_to_duty_cycle(output_percent, 0))
