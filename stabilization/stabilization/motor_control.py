@@ -83,7 +83,7 @@ class MotorControl(Node):
         self.get_logger().info("Error: " + str(error))
 
         # if we detect any error at all...
-        if abs(error) >= 0.1 and abs(error) <= 4.0:
+        if abs(error) >= 0.1:
 
             # if the box is rotating CW...
             if error > 0:
