@@ -47,12 +47,12 @@ class BNO085(Node):
     def timer_callback(self):
 
         # read sensor values each loop
-        acc_x, acc_y, acc_z = self.bno.acceleration # acceleration
-        gyro_x, gyro_y, gyro_z = self.bno.gyro # gyro
-        mag_x, mag_y, mag_z = self.bno.magnetic # magnetometer
+        acc_x, acc_y, acc_z = self.bno.acceleration # acceleration: on x, y, z axes with gravity
+        gyro_x, gyro_y, gyro_z = self.bno.gyro # gyro: can be used to detect spinning
+        mag_x, mag_y, mag_z = self.bno.magnetic # magnetometer: can be used to determine absolute orientation
         quat_i, quat_j, quat_k, quat_real = self.bno.quaternion # rotation vector quaternion
-        grav_x, grav_y, grav_z = self.bno.gravity # gravity
-        lin_acc_x, lin_acc_y, lin_acc_z = self.bno.linear_acceleration # linear acceleration
+        grav_x, grav_y, grav_z = self.bno.gravity # gravity: on x, y, z axes, can be used to determine orientation
+        lin_acc_x, lin_acc_y, lin_acc_z = self.bno.linear_acceleration # linear acceleration: on x, y, z axes without gravity
 
         # make the IMU message
         imu_msg = Imu()
@@ -61,7 +61,7 @@ class BNO085(Node):
         
         imu_msg.angular_velocity.x = gyro_x
         imu_msg.angular_velocity.y = gyro_y
-        imu_msg.angular_velocity.z = gyro_z
+        imu_msg.angular_velocity.z = gyro_z # CW = negative, CCW = positive
 
         imu_msg.linear_acceleration.x = lin_acc_x
         imu_msg.linear_acceleration.y = lin_acc_y
