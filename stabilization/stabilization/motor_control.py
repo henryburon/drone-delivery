@@ -120,9 +120,9 @@ class MotorControl(Node):
                 self.led_channel_0.duty_cycle = duty_cycle
 
         # safety feature: if the error is too large, just shut off the motors
-        elif abs(error) > 7.0:
-            self.led_channel_0.duty_cycle = 3200
-            self.led_channel_2.duty_cycle = 3200
+        # elif abs(error) > 7.0:
+        #     self.led_channel_0.duty_cycle = 3200
+        #     self.led_channel_2.duty_cycle = 3200
 
         # if there is no error...
         else:
