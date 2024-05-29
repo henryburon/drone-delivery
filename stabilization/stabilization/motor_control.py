@@ -58,26 +58,18 @@ class MotorControl(Node):
         if self.esc_armed == True:
             self.get_logger().info("ESC armed. Waiting for user input!", once=True)
 
+            # stabilize the box in the z-axis
             self.stabilize_angle_z()
 
-            # if self.flag == False:
-            #    self.flag = True
-            #    self.led_channel_0.duty_cycle = 3680
-            #    self.led_channel_2.duty_cycle = 3680
-            
-            # else:
-            #     self.flag = False
-            #     self.led_channel_0.duty_cycle = 2900
-                # self.led_channel_2.duty_cycle = 2900
-
-            # log the imu data
-            # self.get_logger().info("IMU data: ")
-            # self.get_logger().info("Gyro: " + str(self.imu_data['gyro']))
 
     def stabilize_angle_z(self):
 
         # P controller
         error = 0.0 - self.imu_data['gyro'][2]
+
+        # save the error to csv file
+        with open('error.csv', 'a') as f:
+            f.write(str(error) + '\n')
 
         # log the error
         self.get_logger().info("Error: " + str(error))
