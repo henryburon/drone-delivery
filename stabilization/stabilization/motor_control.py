@@ -119,6 +119,12 @@ class MotorControl(Node):
                 # set the CW-pushing motor's duty cycle
                 self.led_channel_0.duty_cycle = duty_cycle
 
+        # if there is no error...
+        else:
+            # ensure both motors are off
+            self.led_channel_0.duty_cycle = 3200
+            self.led_channel_2.duty_cycle = 3200
+
 
                  
             
