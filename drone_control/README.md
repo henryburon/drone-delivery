@@ -16,9 +16,10 @@ Designed for use with Marno Nel's [drone_control package](https://github.com/Mar
 
 ### Manual Flight
 
+**Before flight, follow the [Pre-Flight Checklist](#pre-flight-checklist)**
+
 The drone can be flown manually with the RadioMaster TX16 Controller (RC). This does not require the Raspberry Pi to be powered.
 
-**Before flight, follow the [Pre-Flight Checklist](#pre-flight-checklist)**
 
 1. Ensure correct drone configuration, including RC's button and stick mapping.  
    * See [QGroundControl](#qgroundcontrol) for more information.
@@ -32,6 +33,8 @@ The drone can be flown manually with the RadioMaster TX16 Controller (RC). This 
 
 
 ### Autonomous Flight
+
+**Before flight, follow the [Pre-Flight Checklist](#pre-flight-checklist)**
 
 The drone can be controlled autonomously via the C++ [drone_control](https://github.com/Marnonel6/ROS2_offboard_drone_control/blob/main/drone_control/src/drone_control.cpp) state machine using ROS2 and PX4. This code manages the drone's flight along a planned path by handling waypoints and different flight modes.
 
@@ -79,7 +82,30 @@ Launch the node to begin autonomous flight. For safety purposes, control can be 
 
 #### Post-Flight Checklist
 
+1. DISARM the drone (L-->BL; R-->BR).
+2. Power down.  
+   * Disconnect the batteries after safely shutting down the Raspberry Pi.
+3. Inspect the drone hardware for damage.  
+   * Pay particular attention to the batteries. Check for swelling.
+   * Check propellers for cracks.
+   * Ensure all screws and nuts are tight and secure.
+
 #### QGroundControl
 
+QGroundControl is an open-source ground control station software designed for use with drones and other unmanned vehicles. It provides an interface for flight planning, monitoring, and management.
 
+View the QGroundControl User Guide [here](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/).
 
+For our purposes, we can use QGroundControl to:  
+   * Manually ARM the drone.
+   * Check for error messages.
+   * Monitor the drone during flight.
+   * Change flight configurations.
+   * Tune the flight controller (i.e. PID values)
+   * Remap the Radio Controller.
+
+The drone can be connected to the ground station either manually (i.e. cable between Pixhawk and laptop) or wirelessly (i.e. with a telemetry unit).
+
+#### Simulation
+
+View simulation instructions [here](https://github.com/Marnonel6/ROS2_offboard_drone_control/tree/main?tab=readme-ov-file#sitl-simulation).
