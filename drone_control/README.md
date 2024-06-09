@@ -78,7 +78,7 @@ Methods include:
 4. Takeoff  
    * Ensure the takeoff area is clear and flat.
 
-Launch the node to begin autonomous flight. For safety purposes, control can be switched back to manual at any time via flipping the RC's MANUAL control stick. In emergencies, flip the KILL switch to immediately power off the drone during flight.
+Launch the node to begin autonomous flight. For safety purposes, control can be switched back to manual at any time via flipping the RC's MANUAL control stick. In emergencies, flip the KILL switch to immediately cut power to the drone. This should be used with caution, as the drone will likely take damage.
 
 #### Post-Flight Checklist
 
@@ -106,6 +106,11 @@ For our purposes, we can use QGroundControl to:
 
 The drone can be connected to the ground station either manually (i.e. cable between Pixhawk and laptop) or wirelessly (i.e. with a telemetry unit).
 
+![sample_qgroundcontrol](https://github.com/henryburon/stable-drone-delivery/assets/141075086/f731c737-79ba-47ad-a6bc-9fb505aa8965)
+
+Example QGroundControl interface before flight.
+
 #### Simulation
 
 View simulation instructions [here](https://github.com/Marnonel6/ROS2_offboard_drone_control/tree/main?tab=readme-ov-file#sitl-simulation).
+
