@@ -33,7 +33,23 @@ The drone can be flown manually with the RadioMaster TX16 Controller (RC). This 
 
 ### Autonomous Flight
 
-Nodes can be written and loaded onto the Raspberry PI.
+The drone can be controlled autonomously via the C++ [drone_control](https://github.com/Marnonel6/ROS2_offboard_drone_control/blob/main/drone_control/src/drone_control.cpp) state machine using ROS2 and PX4. This code manages the drone's flight along a planned path by handling waypoints and different flight modes.
+
+An example can be seen [here](https://github.com/Marnonel6/ROS2_offboard_drone_control/blob/main/drone_control/src/path_planning.cpp).
+
+The Raspberry Pi must be powered and connected to the Pixhawk.
+
+Drone states include: `PREFLIGHT`, `IDLE`, `OFFBOARD`, `MISSION`, `LAND`, `RTL`, `FAIL`, `LIMBO`, and `ERROR`.
+
+Methods include:  
+`publish_offboard_control_mode()`: Publishes the off-board control mode.  
+`publish_trajectory_setpoint()`: Publishes a trajectory setpoint for the drone.  
+`arm()`: Arms the drone.  
+`disarm()`: Disarms the drone.  
+`takeoff()`: Sends a takeoff command to the drone.  
+`land()`: Sends a land command to the drone.  
+`RTL()`: Sends a return-to-launch command to the drone.  
+`publish_vehicle_command`: Publishes various vehicle commands.  
 
 
 ### Other
@@ -58,6 +74,8 @@ Nodes can be written and loaded onto the Raspberry PI.
    * Ensure failsafe settings are configured correctly.
 4. Takeoff  
    * Ensure the takeoff area is clear and flat.
+
+Launch the node to begin autonomous flight. For safety purposes, control can be switched back to manual at any time via flipping the RC's MANUAL control stick. In emergencies, flip the KILL switch to immediately power off the drone during flight.
 
 #### Post-Flight Checklist
 
