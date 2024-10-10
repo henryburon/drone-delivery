@@ -40,7 +40,10 @@ The drone can be controlled autonomously via the C++ [drone_control](https://git
 
 An example can be seen [here](https://github.com/Marnonel6/ROS2_offboard_drone_control/blob/main/drone_control/src/path_planning.cpp).
 
-The Raspberry Pi must be powered and connected to the Pixhawk.
+The Raspberry Pi must be powered and connected to the Pixhawk. 
+
+On NUMSR WiFi, connect with: `ssh osprey@192.168.18.150`  
+Password: `osprey`
 
 Drone states include: `PREFLIGHT`, `IDLE`, `OFFBOARD`, `MISSION`, `LAND`, `RTL`, `FAIL`, `LIMBO`, and `ERROR`.
 
