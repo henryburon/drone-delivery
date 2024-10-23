@@ -1,6 +1,5 @@
 /**
- * Drone control high level state machine for reading planned path and handling the waypoints to 
- * make the drone fly along the planned path.
+ * Drone control high level state machine
  * 
 */
 // Standard libs
@@ -61,6 +60,7 @@ public:
         frequency_des.description = "Timer callback frequency [Hz]";
         // Declare default parameters values
         declare_parameter("frequency", 100, frequency_des); // Hz for timer_callback
+        // Get params - Read params from yaml file that is passed in the launch file
         int frequency = get_parameter("frequency").get_parameter_value().get<int>();
 
         // Create publishers
@@ -259,6 +259,23 @@ private:
         msg.yawspeed = 0.174533; // [rad/s] -> 10 [Deg/s]
         msg.timestamp = get_clock()->now().nanoseconds() / 1000;
         trajectory_setpoint_publisher_->publish(msg);
+
+        //     px4_msgs::msg::TrajectorySetpoint msg{};
+        //     msg.timestamp = get_clock()->now().nanoseconds() / 1000;
+        //     msg.x = 0.0;
+        //     msg.y = 0.0;
+        //     msg.z = 2.0;
+        //     msg.yaw = 0.0;
+        //     msg.yawspeed = 0.0;
+        //     msg.vx = 0.0;
+        //     msg.vy = 0.0;
+        //     msg.vz = 0.0;
+        //     msg.acceleration = 0.0;
+        //     msg.acceleration_valid = false;
+        //     msg.velocity_valid = false;
+        //     msg.type = 0;
+        //     msg.position_valid = true;
+        //     msg.velocity_frame = 0;
     }
 
     /**
@@ -305,7 +322,7 @@ private:
     void takeoff()
     {
         publish_vehicle_command(px4_msgs::msg::VehicleCommand::VEHICLE_CMD_NAV_TAKEOFF, 0,0,0,
-                               4.21, 473977222, 85456111, 570200);
+                               4.21, 473977222, 85456111, 570200); // 4.2, 473977445, 85455941, 488200);
         RCLCPP_INFO(get_logger(), "Takeoff command send");
     }
 
@@ -388,9 +405,16 @@ private:
                 std::lock_guard<std::mutex> lock(mutex_);
                 flag_timer_done_ = true;
             }
+
+            // RCLCPP_INFO(rclcpp::get_logger("non_blocking_wait_thread"), "Waited for %ld seconds.", duration.count());
         }).detach();
     }
 
+    ///
+    ///
+    /// LIBRARY functions later!!
+    ///
+    ///
     /**
      * @brief Calculate 3D Euclidean distance
      * @param v1 First 3D point
@@ -429,6 +453,11 @@ private:
     {
         return degrees * (M_PI / 180.0);
     }
+    ///
+    ///
+    /// LIBRARY functions later!!
+    ///
+    ///
 
     void check_pilot_state_switch()
     {
@@ -584,6 +613,7 @@ private:
 
                         // Change state to IDLE
                         current_state_ = State::IDLE;
+                        // current_state_ = State::LIMBO; // For testing manual position control
                     }
                     else
                     {
@@ -784,3 +814,29 @@ int main(int argc, char *argv[])
     rclcpp::shutdown();
     return 0;
 }
+
+
+
+// void StartWork()
+// {
+//     if (current_state_ == State::Idle) {
+//         current_state_ = State::Working;
+//         RCLCPP_INFO(this->get_logger(), "State transitioned to Working");
+//     }
+// }
+
+// void Fail()
+// {
+//     if (current_state_ == State::Working) {
+//         current_state_ = State::Error;
+//         RCLCPP_INFO(this->get_logger(), "State transitioned to Error");
+//     }
+// }
+
+// void Reset()
+// {
+//     if (current_state_ == State::Error) {
+//         current_state_ = State::Idle;
+//         RCLCPP_INFO(this->get_logger(), "State transitioned to Idle");
+//     }
+// }
