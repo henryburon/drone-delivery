@@ -59,33 +59,39 @@ void setup() {
 
 void loop() {
 
+  if (Serial.read() == 'y') {
+    Serial.println("got it, lol");
+  }
+
   // Serial.println("Sending a packet from 1");
   // what I want a packaet to look like
   // [destination, origin, clarifier, message]
   // could define a struct to do this...
 
+  Serial.println("Sending a message!");
+
   // constantly just send out a message....
-  // uint8_t radiopacket[4] = {2,1,0,7};
-  // rf95.send((uint8_t *)radiopacket, 4); // 4 bytes. max is 255, I believe
-  // rf95.waitPacketSent(); // wait for the transmitter to become available
+  uint8_t radiopacket[4] = {2,1,0,7};
+  rf95.send((uint8_t *)radiopacket, 4); // 4 bytes. max is 255, I believe
+  rf95.waitPacketSent(); // wait for the transmitter to become available
 
   // // Now, wait for a reply
   // // uint
 
-  // delay(1000);
+  delay(1000);
 
-  uint8_t buf[RH_RF95_MAX_MESSAGE_LEN];
-  uint8_t len = sizeof(buf);
+  // uint8_t buf[RH_RF95_MAX_MESSAGE_LEN];
+  // uint8_t len = sizeof(buf);
 
-  if (rf95.recv(buf, &len)) {
-    digitalWrite(LED, HIGH);
-    RH_RF95::printBuffer("Received: ", buf, len);
-    Serial.println((char*)buf);
+  // if (rf95.recv(buf, &len)) {
+  //   digitalWrite(LED, HIGH);
+  //   RH_RF95::printBuffer("Received: ", buf, len);
+  //   Serial.println((char*)buf);
     
-  }
-  else {
-    Serial.println("No message received.");
-  }
+  // }
+  // else {
+  //   Serial.println("No message received.");
+  // }
 
   
 

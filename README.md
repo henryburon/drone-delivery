@@ -27,6 +27,16 @@ ssh -X henry@192.168.18.108
 ```
 colcon build --packages-select payload
 ```
+## SSH
+
+On NUMSR WiFi
+
+Droid (RPi 5): `ssh henry@droid`
+PW: robotics!
+
+Winch (RPi 4): `ssh henry@winch`
+PW: robotics!
+
 ## Drone Manual
 
 Designed for use with Marno Nel's [drone_control package](https://github.com/Marnonel6/ROS2_offboard_drone_control/tree/main) and [custom 15" PX4-Based Quadcopter](https://marnonel6.github.io/projects/0-autonomous-px4-drone).
