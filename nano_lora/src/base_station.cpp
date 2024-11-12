@@ -58,44 +58,20 @@ void setup() {
 // I think the Serial buffer can hold a maximum of 64 bytes?
 
 void loop() {
+   if (Serial.available() > 0) {
+      String input = Serial.readStringUntil('\n'); // Read input from Serial until newline
+      Serial.print("Received from Serial: ");
+      Serial.println(input);
 
-  if (Serial.read() == 'y') {
-    Serial.println("got it, lol");
-  }
+      // Convert the input string to a char array
+      char radiopacket[input.length() + 1];
+      input.toCharArray(radiopacket, input.length() + 1);
 
-  // Serial.println("Sending a packet from 1");
-  // what I want a packaet to look like
-  // [destination, origin, clarifier, message]
-  // could define a struct to do this...
+      // Send the input over LoRa
+      rf95.send((uint8_t *)radiopacket, input.length() + 1); // Include null terminator
 
-  Serial.println("Sending a message!");
-
-  // constantly just send out a message....
-  uint8_t radiopacket[4] = {2,1,0,7};
-  rf95.send((uint8_t *)radiopacket, 4); // 4 bytes. max is 255, I believe
-  rf95.waitPacketSent(); // wait for the transmitter to become available
-
-  // // Now, wait for a reply
-  // // uint
-
-  delay(1000);
-
-  // uint8_t buf[RH_RF95_MAX_MESSAGE_LEN];
-  // uint8_t len = sizeof(buf);
-
-  // if (rf95.recv(buf, &len)) {
-  //   digitalWrite(LED, HIGH);
-  //   RH_RF95::printBuffer("Received: ", buf, len);
-  //   Serial.println((char*)buf);
-    
-  // }
-  // else {
-  //   Serial.println("No message received.");
-  // }
-
-  
-
-
-
-  
+      Serial.println("Waiting for packet to complete...");
+      rf95.waitPacketSent();
+      Serial.println("Packet send successfully.");
+   }
 }
