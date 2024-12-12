@@ -1,7 +1,23 @@
 # Enabling Safe and Stable Drone Delivery
-### Henry Buron
+
+Author: Henry Buron
 
 View the portfolio post: [https://henryburon.github.io/drone-delivery/](https://henryburon.github.io/drone-delivery/)
+
+### Contents
+1. [System Description](#system-description)
+2. [System Setup](#system-setup)
+3. [Drone Manuel](#drone-manual)
+
+## System Description
+
+This repository is for a drone-based delivery system that delivers a package via tether. The package--in the form of a small mobile robot----stabilizes itself during descent, and has the ability to release itself from the tether and drive along the ground towards its destination.
+
+![full_system](https://github.com/user-attachments/assets/4b4239d5-7273-40f9-a8d8-f7f85fa497cb)
+
+Test
+
+## System Setup
 
 ### Notes
 1. ROS2 Humble
