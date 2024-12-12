@@ -31,11 +31,18 @@ colcon build --packages-select payload
 
 On NUMSR WiFi
 
-Droid (RPi 5): `ssh henry@droid`
+Droid (RPi 5): `ssh henry@droid`  
 PW: robotics!
 
-Winch (RPi 4): `ssh henry@winch`
+Winch (RPi 4): `ssh osprey@osprey`  
+PW: osprey
+
+Ethernet cable (drone & winch RPi 4): `ssh osprey@10.42.0.2`  
+PW: osprey
+
+Ethernet cable (droid RPi 5): `ssh henry@10.42.0.3`
 PW: robotics!
+
 
 ## Drone Manual
 
