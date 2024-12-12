@@ -6,7 +6,7 @@ View the portfolio post: [https://henryburon.github.io/drone-delivery/](https://
 
 ### Contents
 1. [System Description](#system-description)
-2. [System Setup](#system-setup)
+2. [System Setup and Notes](#system-setup-and-notes)
 3. [Drone Manuel](#drone-manual)
 
 ## System Description
@@ -31,47 +31,27 @@ The system consists of three main parts:
 - Consists of a Lora module and Arduino nano.
 - A script on the base station computer sends commands over serial to the Nano which then sends them over LoRa.
 
-## System Setup
+## System Setup and Notes
 
-### Notes
-1. ROS2 Humble
-
-Comment out `source /opt/ros/iron/setup.bash` from bashrc
-
-```
-colcon clean workspace
-source /opt/ros/humble/setup.bash
-colcon build
-source install/setup.bash
-```
-
-Note: issue with `ros2 node list` not returning anything, even if nodes are active. However, ros2 topic list works, and the nodes are actually there.
-
-2. SSH into Raspberry Pi
-
-```
-ssh -X henry@192.168.18.108
-```
-
-3. Build only payload package
-```
-colcon build --packages-select payload
-```
 ## SSH
 
 On NUMSR WiFi
 
-Droid (RPi 5): `ssh henry@droid`  
-PW: robotics!
-
-Winch (RPi 4): `ssh osprey@osprey`  
+Drone/Winch (RPi 4): `ssh osprey@osprey`  
 PW: osprey
 
-Ethernet cable (drone & winch RPi 4): `ssh osprey@10.42.0.2`  
+Mobile Robot (RPi 5): `ssh henry@droid`  
+PW: robotics!
+
+With Ethernet cable:
+
+Drone/Winch (RPi 4): `ssh osprey@10.42.0.2`  
 PW: osprey
 
-Ethernet cable (droid RPi 5): `ssh henry@10.42.0.3`
+Mobile Robot (RPi 5): `ssh henry@10.42.0.3`
 PW: robotics!
+
+Note: Ethernet ports have been given the above static IPs.
 
 
 ## Drone Manual
