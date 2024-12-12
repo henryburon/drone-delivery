@@ -11,11 +11,25 @@ View the portfolio post: [https://henryburon.github.io/drone-delivery/](https://
 
 ## System Description
 
-This repository is for a drone-based delivery system that delivers a package via tether. The package--in the form of a small mobile robot----stabilizes itself during descent, and has the ability to release itself from the tether and drive along the ground towards its destination.
+This repository is for a drone-based delivery system that delivers a package via tether. The package--in the form of a small mobile robot--stabilizes itself during descent, and has the ability to release itself from the tether and drive along the ground towards its destination.
 
 ![full_system](https://github.com/user-attachments/assets/4b4239d5-7273-40f9-a8d8-f7f85fa497cb)
 
-Test
+The system consists of three main parts:
+
+1. Drone and Winch
+- Heavy payload drone, designed and built by [Marno Nel](https://marnonel6.github.io/projects/0-autonomous-px4-drone).
+- Custom-built winch system.
+- The drone receives winch commands via a LoRa module connected to an Arduino Nano. The Arduino Nano, connected via USB to the drone's on-board Raspberry Pi, forwards those messages over serial. A script running on the Raspberry Pi continuously reads the serial buffer and converts those commands into a PWM signal which is sent to the winch's servo motor.
+2. Mobile Package Robot
+- Mechanical and electrical system built from scratch. Communicates via LoRa.
+- Capable of safely storing a small quantity of medical or emergency supplies.
+- Stabilizes itself during descent using its lateral propellers.
+- Releases itself from the winch's tether once its on the ground.
+- Capable of driving over smooth terrain closer to its target destination.
+3. Base Station
+- Consists of a Lora module and Arduino nano.
+- A script on the base station computer sends commands over serial to the Nano which then sends them over LoRa.
 
 ## System Setup
 
